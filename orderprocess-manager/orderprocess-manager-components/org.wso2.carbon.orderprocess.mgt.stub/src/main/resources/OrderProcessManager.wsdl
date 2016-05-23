@@ -1,0 +1,140 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://mgt.orderprocess.carbon.wso2.org" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ax2240="http://data.mgt.orderprocess.carbon.wso2.org/xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://mgt.orderprocess.carbon.wso2.org">
+    <wsdl:documentation>OrderProcessManager</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema xmlns:ax2241="http://data.mgt.orderprocess.carbon.wso2.org/xsd" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://mgt.orderprocess.carbon.wso2.org">
+            <xs:import namespace="http://data.mgt.orderprocess.carbon.wso2.org/xsd"/>
+            <xs:element name="getMenu">
+                <xs:complexType>
+                    <xs:sequence/>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="getMenuResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element maxOccurs="unbounded" minOccurs="0" name="return" nillable="true" type="ax2240:FoodItem"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="confirmItem">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="foodItemName" nillable="true" type="xs:string"/>
+                        <xs:element minOccurs="0" name="foodItemPrice" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="confirmItemResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://data.mgt.orderprocess.carbon.wso2.org/xsd">
+            <xs:complexType name="FoodItem">
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="foodItemName" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="foodItemprice" nillable="true" type="xs:string"/>
+                    <xs:element minOccurs="0" name="id" type="xs:int"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="confirmItemRequest">
+        <wsdl:part name="parameters" element="ns:confirmItem"/>
+    </wsdl:message>
+    <wsdl:message name="confirmItemResponse">
+        <wsdl:part name="parameters" element="ns:confirmItemResponse"/>
+    </wsdl:message>
+    <wsdl:message name="getMenuRequest">
+        <wsdl:part name="parameters" element="ns:getMenu"/>
+    </wsdl:message>
+    <wsdl:message name="getMenuResponse">
+        <wsdl:part name="parameters" element="ns:getMenuResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="OrderProcessManagerPortType">
+        <wsdl:operation name="confirmItem">
+            <wsdl:input message="ns:confirmItemRequest" wsaw:Action="urn:confirmItem"/>
+            <wsdl:output message="ns:confirmItemResponse" wsaw:Action="urn:confirmItemResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="getMenu">
+            <wsdl:input message="ns:getMenuRequest" wsaw:Action="urn:getMenu"/>
+            <wsdl:output message="ns:getMenuResponse" wsaw:Action="urn:getMenuResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="OrderProcessManagerSoap11Binding" type="ns:OrderProcessManagerPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="confirmItem">
+            <soap:operation soapAction="urn:confirmItem" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMenu">
+            <soap:operation soapAction="urn:getMenu" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="OrderProcessManagerSoap12Binding" type="ns:OrderProcessManagerPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="confirmItem">
+            <soap12:operation soapAction="urn:confirmItem" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMenu">
+            <soap12:operation soapAction="urn:getMenu" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="OrderProcessManagerHttpBinding" type="ns:OrderProcessManagerPortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="confirmItem">
+            <http:operation location="confirmItem"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getMenu">
+            <http:operation location="getMenu"/>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="OrderProcessManager">
+        <wsdl:port name="OrderProcessManagerHttpsSoap11Endpoint" binding="ns:OrderProcessManagerSoap11Binding">
+            <soap:address location="https://10.100.7.149:9443/services/OrderProcessManager.OrderProcessManagerHttpsSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="OrderProcessManagerHttpsSoap12Endpoint" binding="ns:OrderProcessManagerSoap12Binding">
+            <soap12:address location="https://10.100.7.149:9443/services/OrderProcessManager.OrderProcessManagerHttpsSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="OrderProcessManagerHttpsEndpoint" binding="ns:OrderProcessManagerHttpBinding">
+            <http:address location="https://10.100.7.149:9443/services/OrderProcessManager.OrderProcessManagerHttpsEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

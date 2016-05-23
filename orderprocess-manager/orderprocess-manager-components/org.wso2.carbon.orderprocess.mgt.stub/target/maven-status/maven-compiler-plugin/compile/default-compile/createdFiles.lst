@@ -1,0 +1,16 @@
+org/wso2/carbon/orderprocess/mgt/stub/OrderProcessManagerStub$2.class
+org/wso2/carbon/orderprocess/mgt/ConfirmItemResponse$Factory.class
+org/wso2/carbon/orderprocess/mgt/stub/OrderProcessManager.class
+org/wso2/carbon/orderprocess/mgt/ExtensionMapper.class
+org/wso2/carbon/orderprocess/mgt/stub/OrderProcessManagerStub$1.class
+org/wso2/carbon/orderprocess/mgt/GetMenuResponse.class
+org/wso2/carbon/orderprocess/mgt/stub/OrderProcessManagerStub.class
+org/wso2/carbon/orderprocess/mgt/GetMenu$Factory.class
+org/wso2/carbon/orderprocess/mgt/stub/OrderProcessManagerCallbackHandler.class
+org/wso2/carbon/orderprocess/mgt/data/xsd/FoodItem$Factory.class
+org/wso2/carbon/orderprocess/mgt/ConfirmItem.class
+org/wso2/carbon/orderprocess/mgt/GetMenu.class
+org/wso2/carbon/orderprocess/mgt/data/xsd/FoodItem.class
+org/wso2/carbon/orderprocess/mgt/GetMenuResponse$Factory.class
+org/wso2/carbon/orderprocess/mgt/ConfirmItemResponse.class
+org/wso2/carbon/orderprocess/mgt/ConfirmItem$Factory.class
